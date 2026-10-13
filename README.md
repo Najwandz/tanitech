@@ -191,14 +191,7 @@ Response sukses berisi `tanaman_terpilih_list` (maksimal 3 nama tanaman sesuai l
 | `Data tanaman tidak ada` di hasil | Tidak ada tanaman dengan probabilitas terukur | Periksa kembali nilai input |
 | Kolom N/P/K tidak mau menerima huruf atau lebih dari 2 desimal | Memang dibatasi oleh validasi form | Ketik angka saja, contoh `42.5` |
 
-## 📌 Catatan Penting
 
-- **Rentang input K.** Form dan validasi frontend membatasi N, P, dan K pada 0-200 mg/kg, padahal backend menormalkan K dengan pembagi 500. Akibatnya nilai K yang masuk ke model paling besar 0,4, sedangkan titik pemisah pohon untuk K berada di 0,02-0,4. Perlu dicek apakah batas 200 untuk K disengaja sesuai data latih.
-- **Validasi hanya di frontend.** Backend belum memeriksa rentang input, sehingga permintaan langsung ke API (mis. lewat curl) dengan nilai di luar batas tetap diproses. Nilai di atas batas normalisasi dipotong menjadi 1,0.
-- **Kode tidak terpakai.** `WekaPredictionService.java` dan `PredictionResponse.java` tidak dipakai oleh controller saat ini, sehingga dapat dihapus atau dirapikan.
-- **CORS** pada backend dibuka untuk semua origin (`@CrossOrigin("*")`). Sebaiknya dibatasi ke domain frontend untuk produksi.
-- **Konten tanaman** di `sayuran.js` (kebutuhan hara, pupuk, estimasi hasil) adalah panduan umum dan perlu divalidasi pakar pertanian setempat sebelum dijadikan acuan nyata.
-- **Cakupan model.** Hasil rekomendasi terbatas pada 138 tanaman di dataset. Sistem ini alat bantu keputusan awal dan tidak menggantikan uji laboratorium maupun penyuluh pertanian.
 
 ## 👥 Tim
 

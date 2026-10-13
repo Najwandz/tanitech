@@ -1,4 +1,4 @@
-# 🌱 TaniTech - Sistem Cerdas Rekomendasi Pemilihan Tanaman
+# TaniTech - Sistem Cerdas Rekomendasi Pemilihan Tanaman
 
 TaniTech adalah **aplikasi web pendukung keputusan pertanian**. Pengguna memasukkan hasil uji tanah lahannya (kandungan N, P, K, pH, dan kelembaban), lalu sistem merekomendasikan tanaman yang paling cocok beserta rekomendasi pupuk dan perkiraan hasil panennya.
 
@@ -6,7 +6,7 @@ Dibuat oleh **Tim ROOT OR ROTI** untuk *Data Mining Competition* **ICONFEST 2026
 
 ---
 
-## 🎯 Tujuan
+## Tujuan
 
 Petani sering memilih tanaman berdasarkan kebiasaan, padahal kondisi hara dan pH tanah tiap lahan berbeda. Akibatnya hasil panen kurang optimal dan pemupukan boros. TaniTech dibuat untuk:
 
@@ -15,7 +15,7 @@ Petani sering memilih tanaman berdasarkan kebiasaan, padahal kondisi hara dan pH
 - memberi gambaran perkiraan hasil panen pada kondisi buruk, normal, dan optimal;
 - menerapkan *data mining* (klasifikasi pohon keputusan J48 dengan Weka) pada kasus nyata di bidang pertanian.
 
-## ✨ Fitur
+## Fitur
 
 | Fitur | Keterangan |
 |---|---|
@@ -24,7 +24,7 @@ Petani sering memilih tanaman berdasarkan kebiasaan, padahal kondisi hara dan pH
 | **Daftar Tanaman WEKA** | Tab berisi database seluruh 138 tanaman yang dikenali model, beserta kebutuhan hara dan rekomendasi pupuknya. |
 | **Penanganan galat** | Validasi input di sisi frontend (N, P, K harus 0-200 mg/kg), serta pesan jelas jika server gagal merespons atau tidak ada tanaman yang cocok untuk lahan ekstrem. |
 
-## ⚙️ Cara Kerja
+## Cara Kerja
 
 ```
 Pengguna isi form  ->  Frontend (React)  --POST /api/predict-->  Backend (Spring Boot)
@@ -54,13 +54,13 @@ Pengguna isi form  ->  Frontend (React)  --POST /api/predict-->  Backend (Spring
 | Ukuran pohon | 11.601 daun, kedalaman 33 |
 | File | `backend/src/main/resources/tanitech-final.model` (±67 MB) |
 
-## 🧰 Teknologi
+## Teknologi
 
 - **Frontend:** React 18, Vite 5, Tailwind CSS 3
 - **Backend:** Java 17, Spring Boot 3.2.3, Weka 3.8.6 (`weka-stable`)
 - **Deploy:** Vercel (frontend), Railway dengan Docker (backend)
 
-## 📁 Struktur Folder
+##  Struktur Folder
 
 ```
 tanitech/
@@ -79,7 +79,7 @@ tanitech/
         └── resources/tanitech-final.model             model Weka
 ```
 
-## 🚀 Cara Menjalankan
+## Cara Menjalankan
 
 ### Prasyarat
 
@@ -102,7 +102,7 @@ Tunggu sampai muncul `Started TanitechApplication`. Backend berjalan di **http:/
 
 ### 2. Arahkan frontend ke backend lokal
 
-> ⚠️ **Penting.** Di `frontend/src/App.jsx`, alamat API saat ini tertulis langsung ke server produksi:
+>  **Penting.** Di `frontend/src/App.jsx`, alamat API saat ini tertulis langsung ke server produksi:
 > `https://tanitech-production.up.railway.app/api/predict`.
 > Jika frontend dijalankan tanpa mengubahnya, hasil yang tampil berasal dari server Railway, **bukan** backend lokal.
 
@@ -132,7 +132,7 @@ npm run build      # hasil di frontend/dist
 npm run preview    # uji hasil build
 ```
 
-## 🧪 Pengujian Cepat
+## Pengujian Cepat
 
 Dengan backend hidup:
 
@@ -154,7 +154,7 @@ Contoh response:
 
 Di browser: isi form, klik tombol analisis, lalu pastikan laporan menampilkan kartu tanaman. Buka tab **Daftar Tanaman WEKA** untuk melihat database 138 tanaman. Di DevTools (F12) tab *Network*, request `predict` harus berstatus **200**.
 
-## 🔌 API
+## API
 
 ### `POST /api/predict`
 
@@ -168,7 +168,7 @@ Di browser: isi form, klik tombol analisis, lalu pastikan laporan menampilkan ka
 
 Response sukses berisi `tanaman_terpilih_list` (maksimal 3 nama tanaman sesuai label model). Jika model belum termuat, response berstatus `500` dengan `{"error": "Model Weka belum siap."}`.
 
-## ☁️ Deploy
+## Deploy
 
 - **Frontend (Vercel):** arahkan *root directory* ke `frontend`. File `vercel.json` sudah mengatur *rewrite* ke `index.html`.
 - **Backend (Railway / Docker):**
@@ -178,7 +178,7 @@ Response sukses berisi `tanaman_terpilih_list` (maksimal 3 nama tanaman sesuai l
   docker run -p 8080:8080 tanitech-backend
   ```
 
-## 🛠️ Pemecahan Masalah
+##  Pemecahan Masalah
 
 | Gejala | Penyebab | Solusi |
 |---|---|---|
@@ -193,6 +193,6 @@ Response sukses berisi `tanaman_terpilih_list` (maksimal 3 nama tanaman sesuai l
 
 
 
-## 👥 Tim
+##  Tim
 
 **ROOT OR ROTI** - ICONFEST 2026 Data Mining Competition

@@ -183,6 +183,7 @@ export default function App() {
                 handleChange={handleChange} 
                 handleSubmit={handleSubmit} 
                 loading={loading} 
+                errorMessage={errorMessage}
               />
             )}
 

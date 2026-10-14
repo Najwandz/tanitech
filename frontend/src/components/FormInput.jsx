@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function FormInput({ formData, handleChange, handleSubmit, loading }) {
+export default function FormInput({ formData, handleChange, handleSubmit, loading, errorMessage }) {
   const handleNutrientChange = (e) => {
     const { name, value } = e.target;
     
@@ -144,12 +144,14 @@ export default function FormInput({ formData, handleChange, handleSubmit, loadin
         </div>
       </div>
 
-      <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-6 flex items-start gap-3">
-        <span className="text-amber-500 text-xl">⚠️</span>
-        <p className="text-amber-800 text-sm font-semibold mt-0.5">
-          Peringatan: Nilai Nitrogen, Fosfor, dan Kalium harus berupa angka antara 0 hingga 200.00 mg/kg.
-        </p>
-      </div>
+      {errorMessage && (
+        <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-6 flex items-start gap-3">
+          <span className="text-amber-500 text-xl">⚠️</span>
+          <p className="text-amber-800 text-sm font-semibold mt-0.5">
+            Peringatan: {errorMessage}
+          </p>
+        </div>
+      )}
 
       <button 
         type="submit" disabled={loading} 

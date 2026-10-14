@@ -11,7 +11,6 @@ export default function FormInput({ formData, handleChange, handleSubmit, loadin
     }
     
     // REGEX MUTLAK: Hanya boleh angka, dan titik desimal maksimal 2 angka di belakangnya
-    // Regex ini secara otomatis memblokir huruf, simbol, dan desimal lebih dari 2 digit (contoh: 2.34 lolos, 2.345 diblokir)
     if (!/^\d*\.?\d{0,2}$/.test(value)) {
       return;
     }
@@ -143,6 +142,13 @@ export default function FormInput({ formData, handleChange, handleSubmit, loadin
             <span>KERING (0%)</span><span>IDEAL (50%)</span><span>BASAH (100%)</span>
           </div>
         </div>
+      </div>
+
+      <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-6 flex items-start gap-3">
+        <span className="text-amber-500 text-xl">⚠️</span>
+        <p className="text-amber-800 text-sm font-semibold mt-0.5">
+          Peringatan: Nilai Nitrogen, Fosfor, dan Kalium harus berupa angka antara 0 hingga 200.00 mg/kg.
+        </p>
       </div>
 
       <button 

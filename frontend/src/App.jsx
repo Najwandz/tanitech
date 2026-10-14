@@ -163,7 +163,7 @@ export default function App() {
         {activeTab === 'prediksi' && (
           <>
             {errorMessage && (
-              <div className="mb-6 p-4 bg-red-100 border border-red-300 text-red-700 rounded-2xl font-semibold text-center">
+              <div className="mb-6 p-4 bg-amber-50 border border-amber-200 text-amber-800 rounded-2xl font-semibold text-center">
                 ⚠️ {errorMessage}
               </div>
             )}
